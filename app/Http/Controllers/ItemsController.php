@@ -56,12 +56,14 @@ class ItemsController extends Controller
 		$item->content = $data['content'];
 		$item->user_id = auth()->id();
 		
+		
 		if ($item->save())
 		{
 			return redirect()->action('ItemsController@index');
 		}
 		else 
 			return redirect()->action('ItemsController@create');
+		
 		
        
     }
@@ -109,6 +111,8 @@ class ItemsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        DB::table('items')->where([['user_id', '=', auth()->id()], ['id', '=', $id]])->delete();
+		
+		return view('items');
     }
 }

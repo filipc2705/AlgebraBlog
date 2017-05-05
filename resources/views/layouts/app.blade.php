@@ -62,6 +62,9 @@
                                     <li>
 											<a href="{{ url('items/new') }}">Novi zapis</a>
 										</li>
+										
+										
+										
 									<li>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();

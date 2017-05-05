@@ -8,6 +8,12 @@
 					<h2>{{ $item->title }}</h2>
 					<div>{{ $item->content }}</div>
 					<div>{{ $item->created_at }}</div>
+					
+					<!-- Provjera da li je user vlasnik itema -->
+					@if (auth()->id() == $item->user_id )
+					<br><a href="{{ url('/item/{{'.$item->id.'/del') }}" class="btn btn-danger">Obriši</a>
+					
+					@endif
 				</div>
 			</div>
 		</div>
